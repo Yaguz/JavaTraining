@@ -1,3 +1,4 @@
+package shapeWithClass;
 
 public class Pyramid extends Shape {
 	private double s;

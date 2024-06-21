@@ -1,3 +1,4 @@
+import shapeWithInterfeces.*;
 
 public class Program {
 

@@ -1,3 +1,4 @@
+package shapeWithClass;
 
 public abstract class SolidOfRevolution extends Shape {
 

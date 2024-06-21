@@ -1,3 +1,4 @@
+package shapeWithInterfeces;
 
 public class Ball extends SolidOfRevolution {
 	
