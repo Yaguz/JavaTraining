@@ -1,3 +1,5 @@
+import java.util.function.Function;
+
 import shapeWithInterfeces.*;
 
 public class Program {
@@ -12,6 +14,16 @@ public class Program {
 		System.out.println(box.add(ball));
 		System.out.println(box.add(cylinder));
 		System.out.println(box.add(pyramid));
+		
+		Shape fig = new SolidFromFunc(new Function<Double, Double>() {
+			
+			@Override
+			public Double apply(Double x) {
+				return Math.cos(x);
+			}
+		} ,0, 10);
+
+		System.out.println(fig.getVolume());
 	}
 
 }

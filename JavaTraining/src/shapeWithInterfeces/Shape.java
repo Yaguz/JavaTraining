@@ -1,6 +1,6 @@
 package shapeWithInterfeces;
 
-interface Shape extends Comparable<Shape> {
+public interface Shape extends Comparable<Shape> {
 	public double getVolume();
 	
 	@Override
