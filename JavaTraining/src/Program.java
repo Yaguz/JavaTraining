@@ -1,29 +1,14 @@
-import java.util.function.Function;
-
-import shapeWithInterfeces.*;
+import java.util.*;
 
 public class Program {
 
 	public static void main(String[] args) {
-		Ball ball = new Ball(4.5);
-		Cylinder cylinder = new Cylinder(2, 2);
-		Pyramid pyramid = new Pyramid(100, 100);
+		FreqWordsDict dw = new FreqWordsDict("C:/Yury/Test.txt");
+		dw.fillDict();
+		for(Map.Entry<Character, Integer> c: dw.dict.entrySet()) {
+			System.out.printf("%s \t\t %d \n", c.getKey(), c.getValue());
+		}
 		
-		Box box = new Box(1000);
-		
-		System.out.println(box.add(ball));
-		System.out.println(box.add(cylinder));
-		System.out.println(box.add(pyramid));
-		
-		Shape fig = new SolidFromFunc(new Function<Double, Double>() {
-			
-			@Override
-			public Double apply(Double x) {
-				return Math.cos(x);
-			}
-		} ,0, 10);
-
-		System.out.println(fig.getVolume());
 	}
 
 }
