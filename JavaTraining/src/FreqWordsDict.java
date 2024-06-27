@@ -3,7 +3,8 @@ import java.util.*;
 
 public class FreqWordsDict {
 	String path;
-	public Map<Character, Integer> dict = new HashMap<Character, Integer>();
+	private Map<Character, Integer> dict = new HashMap<Character, Integer>();
+	public ArrayList<Map.Entry<Character, Integer>> dictSort;
 	
 	public FreqWordsDict(String path) {
 		this.path = path;
@@ -14,14 +15,23 @@ public class FreqWordsDict {
 			FileReader fr = new FileReader(path);
 			
 			int c;
+			Character cc;
 			while((c = fr.read()) != -1) {
-				Integer x = dict.get((char) c);
-				dict.put(Character.valueOf((char)c), 
-						(x.equals(null) ? Integer.valueOf(1) : Integer.valueOf(++x)));
-//				dict.put((char) c, Integer.valueOf(++x));
+				cc = (char)c;
+				cc = Character.toLowerCase(cc);
+				
+				if(!(cc >= 'а' && cc <= 'я')) {continue;}
+				
+				Integer x = dict.get(Character.valueOf(cc));
+				dict.put(Character.valueOf(cc), 
+						(x == null ? Integer.valueOf(1) : Integer.valueOf(++x)));
 				
 			}
 			fr.close();
+			
+			// надо упорядочить мапу
+			dictSort = new ArrayList<>(dict.entrySet());
+			dictSort.sort((x1, x2) -> Integer.compare(x2.getValue(), x1.getValue()));
 		} catch(Exception e) {
 			System.out.println(e.getMessage());
 		}
